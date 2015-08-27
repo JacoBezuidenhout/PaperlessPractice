@@ -1,0 +1,14 @@
+{
+  "name": "paperlessPractice",
+  "version": "0.0.1",
+  "main": "app://PaperlessPractice/home.html",
+  "window": {
+    "title": "Paperless Practice",
+    "icon": "icon.png",
+    "toolbar": false,
+    "frame": true,
+    "position": "center",
+    "width": 800,
+    "height": 600
+  }
+}
