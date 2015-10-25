@@ -1,0 +1,29 @@
+{
+  "name": "paperlessReports",
+  "version": "0.0.0",
+  "homepage": "https://github.com/JacoBezuidenhout/PaperlessPractice",
+  "description": "",
+  "main": "index.html",
+  "moduleType": [],
+  "authors": [
+    "Jaco Bezuidenhout"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-material": "~0.11.4",
+    "bootstrap-css-only": "~3.3.5",
+    "font-awesome": "~4.4.0",
+    "jquery": "~2.1.4",
+    "angular-wysiwyg": "~1.2.4",
+    "angular-bootstrap-colorpicker": "~3.0.19",
+    "angular-ui-tinymce": "~0.0.10",
+    "angular-sanitize": "~1.4.7"
+  }
+}

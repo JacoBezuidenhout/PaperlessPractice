@@ -1,0 +1,59 @@
+<html lang="en" ng-app="paperless.reports">
+  <head>
+    <link rel="stylesheet" href="/bower_components/angular-material/angular-material.css">
+    <link rel='stylesheet' href='/bower_components/bootstrap-css-only/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='/bower_components/font-awesome/css/font-awesome.min.css'>
+    <link rel='stylesheet' href='/bower_components/textAngular/dist/textAngular.css'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
+    <meta name="viewport" content="initial-scale=1" />
+  </head>
+  <body layout="column" ng-controller="reports.main as app">
+    <md-toolbar layout="row">
+      <div class="md-toolbar-tools">
+        <md-button ng-click="toggleSidenav('left')" hide-gt-sm class="md-icon-button">
+          <md-icon aria-label="Menu" md-svg-icon="https://s3-us-west-2.amazonaws.com/s.cdpn.io/68133/menu.svg"></md-icon>
+        </md-button>
+        <h1>{{app.name}}</h1> 
+      </div>
+    </md-toolbar>
+    <div layout="row" flex>
+        <md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
+          
+        </md-sidenav>
+        <div layout="column" flex id="content">
+            <md-content layout="column" flex class="md-padding">
+              <div layout="row" ng-controller="reports.editor as report">
+                <div flex="75">
+                  <md-card>
+                   <md-card-content>
+                     <h2>Report headline</h2>
+                     <textarea ui-tinymce="report.tinymceOptions" ng-model="tinymceModel" ng-change="report.update()">></textarea>
+                   </md-card-content>
+                   <md-card-footer>
+                     <span>{{report.body}}</span>
+                     <span ng-bind-html="report.body"></span>
+                   </md-card-footer>
+                  </md-card>
+                </div>
+                <div flex="25">
+                  <md-button ng-repeat="option in report.options" class="md-raised" ng-click="report.insertText('{{' + option.key + '}}')">{{option.title}}</md-button>
+                </div>
+              </div>
+          </md-content>
+        </div>
+    </div>
+    <!-- Angular Material Dependencies -->
+    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="/bower_components/angular/angular.min.js"></script>
+
+    <script type="text/javascript" src="bower_components/tinymce-dist/tinymce.js"></script>
+    <script type="text/javascript" src="bower_components/angular-ui-tinymce/src/tinymce.js"></script>
+
+    <script src="/bower_components/angular-aria/angular-aria.min.js"></script>
+    <script src="/bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="/bower_components/angular-material/angular-material.min.js"></script>
+    <script src="/bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+    
+    <script src="./js/app.js"></script>
+  </body>
+</html>
