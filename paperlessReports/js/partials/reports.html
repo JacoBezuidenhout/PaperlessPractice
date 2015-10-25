@@ -1,0 +1,28 @@
+<md-content layout="column" flex class="md-padding">
+  <div layout="row" ng-controller="reports.editor as report">
+    <div flex="75">
+      <md-card>
+       <md-card-content>
+         <h2>Report headline</h2>
+         <textarea ui-tinymce="report.tinymceOptions" ng-model="tinymceModel" ng-change="report.update()">></textarea>
+       </md-card-content>
+       <md-card-footer>
+         <span>{{report.body}}</span>
+         <span ng-bind-html="report.body"></span>
+       </md-card-footer>
+      </md-card>
+    </div>
+    <div flex="25">
+      <md-autocomplete md-selected-item="selectedItem" md-search-text="searchText" md-items="item in getMatches(searchText)" md-item-text="item.display">
+        <md-item-template>
+          <span md-highlight-text="searchText">{{item.display}}</span>
+        </md-item-template>
+        <md-not-found>
+          No matches found.
+        </md-not-found>
+      </md-autocomplete>
+      <br/>
+      <md-button ng-repeat="option in report.options" class="md-raised" ng-click="report.insertText('{{' + option.key + '}}')">{{option.title}}</md-button>
+    </div>
+  </div>
+</md-content>
