@@ -16,9 +16,9 @@
     </md-toolbar>
     <div layout="row" flex>
         <md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
-          <md-menu-item><md-button ng-click="">All Reports</md-button></md-menu-item>
-          <md-menu-item><md-button ng-click="">New Report</md-button></md-menu-item>
-          <md-menu-item><md-button ng-click="">Common Phrases</md-button></md-menu-item>
+          <md-menu-item><md-button href="#/reports">All Reports</md-button></md-menu-item>
+          <md-menu-item><md-button href="#/reports/-1">New Report</md-button></md-menu-item>
+          <md-menu-item><md-button href="#/reports">Common Phrases</md-button></md-menu-item>
         </md-sidenav>
 
         <div layout="column" flex id="content">
@@ -31,6 +31,10 @@
     <!-- Angular Material Dependencies -->
     <script src="/bower_components/jquery/dist/jquery.min.js"></script>
     <script src="/bower_components/angular/angular.min.js"></script>
+    <script src="/bower_components/jst9/dist/jst9.min.js"></script>
+    <script src="/bower_components/taffydb/taffy-min.js"></script>
+
+    <script src="/bower_components/print-html-element/print-html-element.min.js"></script>
 
     <script type="text/javascript" src="bower_components/tinymce-dist/tinymce.js"></script>
     <script type="text/javascript" src="bower_components/angular-ui-tinymce/src/tinymce.js"></script>
@@ -41,6 +45,13 @@
     <script src="/bower_components/angular-sanitize/angular-sanitize.min.js"></script>
     <script src="/bower_components/angular-route/angular-route.min.js"></script>
     
+    <script type="text/javascript">
+      //INIT
+      var reports = TAFFY();
+      reports.store("reports");
+
+    </script>
+
     <script src="./js/app.js"></script>
   </body>
 </html>

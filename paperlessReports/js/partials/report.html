@@ -5,7 +5,7 @@
        <md-card-content>
         <md-input-container>
           <label>Report Name</label>
-          <input type="text" ng-model="report.reportTitle" required md-maxlength="50">
+          <input type="text" ng-model="report.title" required md-maxlength="50">
         </md-input-container>
          <textarea ui-tinymce="report.tinymceOptions" ng-model="report.editorBody" ng-change="report.update()">></textarea>
        </md-card-content>
@@ -13,18 +13,23 @@
       <md-card>
        <md-card-content>
         <h2>Sample Preview</h2>
-         <span ng-bind-html="report.body"></span>
+         <span id="pdf" ng-bind-html="report.body"></span>
        </md-card-content>
       </md-card>
     </div>
     <div flex="25">
       <md-card>
+        <md-card-content style="text-align: center">
+          <md-button class="md-raised" ng-click="report.print()">Print</md-button><md-button class="md-raised" ng-click="report.save()">Save</md-button><md-button class="md-raised" ng-click="report.cancel()">Cancel</md-button><md-button class="md-raised" ng-click="report.delete()">Delete</md-button>
+        </md-card-content>
+      </md-card>
+      <md-card>
         <md-card-content>
           <md-input-container >
             <label>Model</label>
-            <md-autocomplete md-selected-item="selectedItem" md-search-text="searchText" md-items="item in report.models | filter:searchText" md-item-text="item.display">
+            <md-autocomplete md-selected-item="selectedItem" md-search-text="searchText" md-items="item in report.models | filter:searchText" md-selected-item-change="report.updateOptions()" md-item-text="item.model">
               <md-item-template>
-                <span md-highlight-text="searchText">{{item.display}}</span>
+                <span md-highlight-text="searchText">{{item.model}}</span>
               </md-item-template>
               <md-not-found>
                 No matches found.
@@ -33,13 +38,13 @@
           </md-input-container>
           <br/>
           <p class="md-body-2" ng-hide="report.options">No model selected.</p>
-          <md-button ng-repeat="option in report.options" class="md-raised" ng-click="report.insertText(option.value)">{{option.title}}</md-button>
+          <md-button ng-repeat="option in selectedItem.options" class="md-raised" ng-click="report.insertText(option.value)">{{option.title}}</md-button>
         </md-card-content>
       </md-card>
       <md-card>
         <md-card-content>
           <p class="md-body-2" ng-hide="report.commons">No model selected.</p>
-          <md-button ng-repeat="option in report.commons" class="md-raised" ng-click="report.insertText(option.value)">{{option.title}}</md-button>
+          <md-button ng-repeat="option in report.commons | filter:(selectedItem.model || 9999)" class="md-raised" ng-click="report.insertText(option.value)">{{option.title}}</md-button>
         </md-card-content>
       </md-card>
     </div>

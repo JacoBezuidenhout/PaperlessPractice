@@ -22,6 +22,10 @@
     "jquery": "~2.1.4",
     "angular-ui-tinymce": "~0.0.10",
     "angular-sanitize": "~1.4.7",
-    "angular-route": "~1.4.7"
+    "angular-route": "~1.4.7",
+    "jst9": "~0.4.0",
+    "taffydb": "*",
+    "HTML2PDF": "https://github.com/WebbyLab/js-html-to-pdf.git",
+    "print-html-element": "~0.3.1"
   }
 }
