@@ -2,7 +2,7 @@
   "name": "paperless.reports",
   "version": "1.0.0",
   "description": "",
-  "main": "gulpfile.js",
+  "main": "index.html",
   "dependencies": {
     "gulp": "^3.9.0"
   },
